@@ -75,6 +75,9 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
         payload: response.data,
       });
       onRefreshLeaderboard();
+      
+      // Automatically regenerate key for the next transaction session
+      regenerateKey();
     }
   };
 
