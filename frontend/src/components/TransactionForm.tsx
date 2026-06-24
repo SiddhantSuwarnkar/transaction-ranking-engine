@@ -167,7 +167,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
   };
 
   return (
-    <div className="glass-panel glass-panel-hover rounded-2xl p-6 shadow-xl">
+    <div className="glass-panel glass-panel-hover rounded-lg p-6 shadow-xl text-slate-800">
       <h2 className="text-lg font-bold text-emerald-900 mb-4 flex items-center gap-2">
         <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -187,7 +187,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             placeholder="Enter User ID (e.g. user_1)"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
-            className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none text-slate-800 placeholder-slate-400 text-sm transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none text-slate-800 placeholder-slate-400 text-sm transition-all"
           />
         </div>
 
@@ -203,7 +203,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             placeholder="Enter amount (negative for withdrawals)"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none text-slate-800 placeholder-slate-400 text-sm transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none text-slate-800 placeholder-slate-400 text-sm transition-all"
           />
         </div>
 
@@ -225,7 +225,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
               placeholder="Idempotency-Key"
               value={idempotencyKey}
               onChange={(e) => setIdempotencyKey(e.target.value)}
-              className="flex-1 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:outline-none text-slate-600 placeholder-slate-400 text-xs font-mono select-all"
+              className="flex-1 px-4 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:outline-none text-slate-650 placeholder-slate-400 text-xs font-mono select-all"
             />
           </div>
         </div>
@@ -235,7 +235,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
           <button
             type="submit"
             disabled={loading || simulating}
-            className="w-full py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 text-white font-semibold rounded-xl shadow-md hover:shadow-emerald-600/10 transition-all active:scale-98 disabled:active:scale-100 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
+            className="w-full py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 text-white font-semibold rounded-lg shadow-md hover:shadow-emerald-600/10 transition-all active:scale-98 disabled:active:scale-100 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
           >
             {loading && !simulating ? (
               <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -247,14 +247,14 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
           {/* Divider */}
           <div className="relative flex py-2 items-center">
             <div className="flex-grow border-t border-slate-100"></div>
-            <span className="flex-shrink mx-4 text-[10px] font-bold text-slate-450 uppercase tracking-wider">
+            <span className="flex-shrink mx-4 text-[10px] font-bold text-slate-455 uppercase tracking-wider">
               Concurrency Simulation Suite
             </span>
             <div className="flex-grow border-t border-slate-100"></div>
           </div>
 
           {/* Concurrency parameters */}
-          <div className="bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60 space-y-3">
+          <div className="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100/60 space-y-3">
             <label className="flex items-center gap-2.5 text-xs text-slate-700 cursor-pointer font-medium">
               <input
                 type="checkbox"

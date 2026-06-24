@@ -70,7 +70,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onAddLog, refreshTrigg
   }, [fetchRankings, autoPoll]);
 
   return (
-    <div className="glass-panel glass-panel-hover rounded-2xl p-6 shadow-xl flex flex-col h-full">
+    <div className="glass-panel glass-panel-hover rounded-lg p-6 shadow-xl flex flex-col h-full text-slate-800">
       {/* Header */}
       <div className="flex flex-wrap justify-between items-center gap-3 mb-5">
         <h2 className="text-lg font-bold text-emerald-900 flex items-center gap-2">
@@ -95,7 +95,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onAddLog, refreshTrigg
           <button
             onClick={() => fetchRankings(false)}
             disabled={loading}
-            className="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100/80 disabled:bg-slate-50 border border-emerald-250/50 hover:border-emerald-300 disabled:border-slate-200 text-emerald-800 text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1.5 cursor-pointer disabled:cursor-not-allowed"
+            className="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100/80 disabled:bg-slate-50 border border-emerald-250/50 hover:border-emerald-300 disabled:border-slate-200 text-emerald-800 text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1.5 cursor-pointer disabled:cursor-not-allowed"
             title="Refresh Leaderboard"
           >
             <svg className={`w-3.5 h-3.5 text-emerald-700 ${loading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +107,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ onAddLog, refreshTrigg
       </div>
 
       {/* Exclude disclaimer */}
-      <div className="text-[11px] text-slate-500 mb-4 bg-emerald-50/20 p-3 rounded-xl border border-emerald-100/40">
+      <div className="text-[11px] text-slate-505 mb-4 bg-emerald-50/20 p-3 rounded-lg border border-emerald-100/40">
         <span className="font-bold text-emerald-700">Anti-Abuse Rule:</span> Only transactions <span className="font-bold text-slate-700">≥ ₹5.00</span> are counted in the leaderboard.
         <br />
         <span className="font-bold text-slate-500">Weight Formula:</span> (Qualifying Amount × 70%) + (Qualifying Count × 30%)

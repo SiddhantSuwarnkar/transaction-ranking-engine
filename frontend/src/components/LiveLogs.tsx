@@ -19,7 +19,7 @@ interface LiveLogsProps {
 
 export const LiveLogs: React.FC<LiveLogsProps> = ({ logs, onClear }) => {
   return (
-    <div className="bg-[#021d18] rounded-2xl p-5 flex flex-col h-[400px] shadow-2xl relative border border-emerald-950/80 overflow-hidden">
+    <div className="bg-[#021d18] rounded-lg p-5 flex flex-col h-[400px] shadow-2xl relative border border-emerald-950/80 overflow-hidden">
       {/* Header */}
       <div className="flex justify-between items-center mb-3 pb-2 border-b border-emerald-900/60">
         <div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export const LiveLogs: React.FC<LiveLogsProps> = ({ logs, onClear }) => {
             
             let statusBadgeColor = 'text-emerald-300 bg-emerald-950/80 border-emerald-800/40';
             if (isError) {
-              statusBadgeColor = 'text-rose-450 bg-rose-950/85 border-rose-900/50';
+              statusBadgeColor = 'text-rose-455 bg-rose-950/85 border-rose-900/50';
             } else if (isCached) {
               statusBadgeColor = 'text-amber-305 bg-amber-950/80 border-amber-900/50';
             } else if (isReset) {
