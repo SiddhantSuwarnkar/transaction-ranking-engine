@@ -19,28 +19,28 @@ interface LiveLogsProps {
 
 export const LiveLogs: React.FC<LiveLogsProps> = ({ logs, onClear }) => {
   return (
-    <div className="glass-panel rounded-2xl p-5 flex flex-col h-[400px] shadow-2xl relative overflow-hidden">
+    <div className="bg-[#021d18] rounded-2xl p-5 flex flex-col h-[400px] shadow-2xl relative border border-emerald-950/80 overflow-hidden">
       {/* Header */}
-      <div className="flex justify-between items-center mb-3 pb-2 border-b border-slate-800">
+      <div className="flex justify-between items-center mb-3 pb-2 border-b border-emerald-900/60">
         <div className="flex items-center gap-2">
-          <span className="flex h-2 w-2 rounded-full bg-indigo-500 pulse-dot" />
-          <h2 className="text-sm font-semibold tracking-wider uppercase text-indigo-400">
-            System Live Logs & Telemetry
+          <span className="flex h-2 w-2 rounded-full bg-emerald-400 pulse-dot" />
+          <h2 className="text-xs font-mono font-bold tracking-wider uppercase text-emerald-400">
+            System Live Logs & Telemetry Console
           </h2>
         </div>
         <button
           onClick={onClear}
-          className="text-xs px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 transition-colors border border-slate-700"
+          className="text-[10px] font-mono font-bold px-2.5 py-1 rounded bg-[#042d24] hover:bg-[#073f32] text-emerald-300 hover:text-emerald-100 transition-colors border border-emerald-900/40 cursor-pointer"
         >
-          Clear Terminal
+          Clear Console
         </button>
       </div>
 
       {/* Terminal Content */}
-      <div className="flex-1 overflow-y-auto font-mono text-xs space-y-2.5 pr-2 scrollbar-thin">
+      <div className="flex-1 overflow-y-auto font-mono text-xs space-y-2.5 pr-2 scrollbar-thin scrollbar-thumb-emerald-900">
         {logs.length === 0 ? (
-          <div className="text-slate-500 italic flex items-center justify-center h-full">
-            No system requests fired yet. Submit a transaction or search a user.
+          <div className="text-emerald-900/80 italic flex items-center justify-center h-full">
+            &gt; Standing by. No system telemetry requests received yet.
           </div>
         ) : (
           logs.map((log) => {
@@ -48,13 +48,13 @@ export const LiveLogs: React.FC<LiveLogsProps> = ({ logs, onClear }) => {
             const isCached = log.status === 'CACHED';
             const isReset = log.status === 'RESET';
             
-            let statusBadgeColor = 'text-emerald-400 bg-emerald-950/40 border-emerald-900/50';
+            let statusBadgeColor = 'text-emerald-300 bg-emerald-950/80 border-emerald-800/40';
             if (isError) {
-              statusBadgeColor = 'text-rose-400 bg-rose-950/40 border-rose-900/50';
+              statusBadgeColor = 'text-rose-450 bg-rose-950/85 border-rose-900/50';
             } else if (isCached) {
-              statusBadgeColor = 'text-amber-400 bg-amber-950/40 border-amber-900/50';
+              statusBadgeColor = 'text-amber-305 bg-amber-950/80 border-amber-900/50';
             } else if (isReset) {
-              statusBadgeColor = 'text-sky-400 bg-sky-950/40 border-sky-900/50';
+              statusBadgeColor = 'text-sky-350 bg-sky-950/80 border-sky-900/50';
             }
 
             return (
@@ -62,30 +62,30 @@ export const LiveLogs: React.FC<LiveLogsProps> = ({ logs, onClear }) => {
                 key={log.id}
                 className={`p-2.5 rounded border transition-all ${
                   isError
-                    ? 'bg-rose-950/10 border-rose-900/25'
+                    ? 'bg-rose-950/10 border-rose-950/30'
                     : isCached
-                    ? 'bg-amber-950/10 border-amber-900/25'
+                    ? 'bg-amber-950/10 border-amber-950/30'
                     : isReset
-                    ? 'bg-sky-950/10 border-sky-900/25'
-                    : 'bg-indigo-950/10 border-indigo-900/25'
+                    ? 'bg-sky-950/10 border-sky-950/30'
+                    : 'bg-[#032921]/60 border-emerald-900/40'
                 }`}
               >
                 {/* Meta details */}
-                <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 mb-1 text-[11px] text-slate-400">
+                <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 mb-1 text-[11px] text-emerald-600/90">
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-500">{log.timestamp}</span>
-                    <span className="font-bold text-slate-300">
+                    <span className="text-emerald-850 font-medium">{log.timestamp}</span>
+                    <span className="font-extrabold text-emerald-450">
                       {log.method} {log.endpoint}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-500">Latency:</span>
-                    <span className={log.latencyMs > 100 ? 'text-amber-400' : 'text-slate-300'}>
+                    <span className="text-emerald-850">Latency:</span>
+                    <span className={log.latencyMs > 100 ? 'text-amber-500 font-bold' : 'text-emerald-400'}>
                       {log.latencyMs}ms
                     </span>
-                    <span className="text-slate-500">|</span>
-                    <span className="text-slate-500">HTTP Status:</span>
-                    <span className={`font-bold ${isError ? 'text-rose-400' : 'text-emerald-400'}`}>
+                    <span className="text-emerald-850">|</span>
+                    <span className="text-emerald-850">HTTP Status:</span>
+                    <span className={`font-extrabold ${isError ? 'text-rose-400' : 'text-emerald-400'}`}>
                       {log.statusCode}
                     </span>
                   </div>
@@ -93,9 +93,9 @@ export const LiveLogs: React.FC<LiveLogsProps> = ({ logs, onClear }) => {
 
                 {/* Idempotency Key header log */}
                 {log.idempotencyKey && (
-                  <div className="text-[10px] text-slate-500 mb-1 flex items-center gap-1">
-                    <span className="font-semibold text-slate-400">Idempotency-Key:</span>
-                    <span className="bg-slate-900 px-1 py-0.5 rounded select-all font-semibold text-violet-400">
+                  <div className="text-[10px] text-emerald-700/80 mb-1 flex items-center gap-1">
+                    <span className="font-bold text-emerald-800">Idempotency-Key:</span>
+                    <span className="bg-[#011411] px-1.5 py-0.5 rounded select-all font-bold text-emerald-400">
                       {log.idempotencyKey}
                     </span>
                   </div>
@@ -103,13 +103,13 @@ export const LiveLogs: React.FC<LiveLogsProps> = ({ logs, onClear }) => {
 
                 {/* Status tag & payload */}
                 <div className="flex items-start gap-2 mt-1">
-                  <span className={`text-[9px] uppercase px-1.5 py-0.5 rounded border font-semibold ${statusBadgeColor}`}>
+                  <span className={`text-[9px] uppercase px-1.5 py-0.5 rounded border font-extrabold ${statusBadgeColor}`}>
                     {log.status === 'PROCESSED' && '[PROCESSED NEW]'}
                     {log.status === 'CACHED' && '[SERVED FROM CACHED IDEMPOTENCY]'}
                     {log.status === 'ERROR' && '[FAILED/ERROR]'}
                     {log.status === 'RESET' && '[SYSTEM DB RESET]'}
                   </span>
-                  <div className="flex-1 overflow-x-auto text-[11px] text-slate-300 whitespace-pre-wrap max-w-full">
+                  <div className="flex-1 overflow-x-auto text-[11px] text-emerald-300/90 whitespace-pre-wrap max-w-full font-mono">
                     {typeof log.payload === 'object'
                       ? JSON.stringify(log.payload)
                       : log.payload}

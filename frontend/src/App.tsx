@@ -58,45 +58,45 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col font-sans relative overflow-hidden pb-12">
-      {/* Background Decorative Glow Spots */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] bg-violet-500/10 rounded-full blur-[120px] pointer-events-none" />
+    <div className="min-h-screen bg-[#f4f8f6] text-slate-800 flex flex-col font-sans relative overflow-hidden pb-12">
+      {/* Background Decorative Glow Spots - Natural Emerald & Mint */}
+      <div className="absolute top-[-10%] left-[-15%] w-[60%] h-[60%] bg-emerald-100/40 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[5%] right-[-10%] w-[55%] h-[55%] bg-green-100/40 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Navigation Header */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-4 border-b border-slate-900/60 z-10">
+      <header className="w-full max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-4 border-b border-emerald-900/5 z-10">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 shadow-md shadow-indigo-500/20">
+          <div className="p-2.5 rounded-xl bg-gradient-to-tr from-emerald-600 to-green-600 shadow-md shadow-emerald-600/10">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
           <div>
-            <h1 className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+            <h1 className="text-xl font-extrabold tracking-tight text-emerald-900">
               Enterprise Concurrency Suite
             </h1>
-            <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mt-0.5">
-              Transaction & Ranking Engine
+            <p className="text-xs text-emerald-700/80 font-bold uppercase tracking-wider mt-0.5">
+              High-Concurrency Transaction & Ranking Engine
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
           {/* Status Badge */}
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-indigo-400 font-bold shadow-inner">
-            <span className="h-2 w-2 rounded-full bg-indigo-500 pulse-dot" />
+          <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-xs text-emerald-700 font-bold shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 pulse-dot" />
             FastAPI Service Online
           </div>
           
           {/* Reset Database Button */}
           <button
             onClick={handleResetDatabase}
-            className="px-4 py-1.5 rounded-xl bg-rose-950/20 hover:bg-rose-950/40 text-rose-400 hover:text-rose-350 border border-rose-900/30 hover:border-rose-900/50 text-xs font-bold transition-all shadow-md active:scale-95 flex items-center gap-1.5"
+            className="px-4 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200/60 hover:border-rose-300 text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1.5"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
             </svg>
-            Reset Database
+            Reset Ledger Data
           </button>
         </div>
       </header>

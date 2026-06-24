@@ -81,7 +81,6 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
     }
   };
 
-  // Simulates 10 concurrent requests to test idempotency or race condition safety
   const handleSimulateConcurrency = async () => {
     if (!userId.trim() || !amount.trim()) return;
 
@@ -168,9 +167,9 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
   };
 
   return (
-    <div className="glass-panel glass-panel-hover rounded-2xl p-6 shadow-2xl">
-      <h2 className="text-lg font-bold text-slate-100 mb-4 flex items-center gap-2">
-        <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <div className="glass-panel glass-panel-hover rounded-2xl p-6 shadow-xl">
+      <h2 className="text-lg font-bold text-emerald-900 mb-4 flex items-center gap-2">
+        <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         Transaction Submission
@@ -179,7 +178,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
       <form onSubmit={handleSingleSubmit} className="space-y-4">
         {/* User ID Field */}
         <div>
-          <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1.5">
             User ID
           </label>
           <input
@@ -188,13 +187,13 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             placeholder="Enter User ID (e.g. user_1)"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
-            className="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-200 placeholder-slate-500 text-sm"
+            className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none text-slate-800 placeholder-slate-400 text-sm transition-all"
           />
         </div>
 
         {/* Amount Field */}
         <div>
-          <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1.5">
             Amount (₹)
           </label>
           <input
@@ -204,20 +203,20 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             placeholder="Enter amount (negative for withdrawals)"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-200 placeholder-slate-500 text-sm"
+            className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none text-slate-800 placeholder-slate-400 text-sm transition-all"
           />
         </div>
 
         {/* Idempotency Key Field */}
         <div>
-          <label className="flex justify-between items-center text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+          <label className="flex justify-between items-center text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1.5">
             <span>Idempotency-Key Header</span>
             <button
               type="button"
               onClick={regenerateKey}
-              className="text-[10px] text-indigo-400 hover:text-indigo-300 font-bold normal-case hover:underline"
+              className="text-[10px] text-emerald-700 hover:text-emerald-900 font-extrabold normal-case hover:underline"
             >
-              Regenerate
+              Regenerate Key
             </button>
           </label>
           <div className="flex gap-2">
@@ -226,17 +225,17 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
               placeholder="Idempotency-Key"
               value={idempotencyKey}
               onChange={(e) => setIdempotencyKey(e.target.value)}
-              className="flex-1 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-300 placeholder-slate-500 text-xs font-mono select-all"
+              className="flex-1 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:outline-none text-slate-600 placeholder-slate-400 text-xs font-mono select-all"
             />
           </div>
         </div>
 
         {/* Submit Buttons */}
-        <div className="pt-2 flex flex-col gap-2.5">
+        <div className="pt-2 flex flex-col gap-3">
           <button
             type="submit"
             disabled={loading || simulating}
-            className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 disabled:from-slate-800 disabled:to-slate-800 text-white font-semibold rounded-xl shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/25 transition-all active:scale-98 disabled:active:scale-100 flex items-center justify-center gap-2"
+            className="w-full py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 text-white font-semibold rounded-xl shadow-md hover:shadow-emerald-600/10 transition-all active:scale-98 disabled:active:scale-100 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
           >
             {loading && !simulating ? (
               <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -247,25 +246,25 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
 
           {/* Divider */}
           <div className="relative flex py-2 items-center">
-            <div className="flex-grow border-t border-slate-800"></div>
-            <span className="flex-shrink mx-4 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+            <div className="flex-grow border-t border-slate-100"></div>
+            <span className="flex-shrink mx-4 text-[10px] font-bold text-slate-450 uppercase tracking-wider">
               Concurrency Simulation Suite
             </span>
-            <div className="flex-grow border-t border-slate-800"></div>
+            <div className="flex-grow border-t border-slate-100"></div>
           </div>
 
           {/* Concurrency parameters */}
-          <div className="bg-slate-950/20 p-3.5 rounded-xl border border-slate-850 space-y-2.5">
-            <label className="flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
+          <div className="bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/60 space-y-3">
+            <label className="flex items-center gap-2.5 text-xs text-slate-700 cursor-pointer font-medium">
               <input
                 type="checkbox"
                 checked={useSameKeyForSim}
                 onChange={(e) => setUseSameKeyForSim(e.target.checked)}
-                className="rounded bg-slate-900 border-slate-700 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-slate-900"
+                className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
               />
               Use shared/duplicate Idempotency Key
             </label>
-            <p className="text-[10px] text-slate-500 leading-normal">
+            <p className="text-[10px] text-slate-500 leading-relaxed">
               {useSameKeyForSim
                 ? 'Only 1 transaction will write to database, 9 returns cached payload.'
                 : '10 distinct transactions will write concurrently, showing atomic lock consistency.'}
@@ -275,11 +274,11 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
               type="button"
               onClick={handleSimulateConcurrency}
               disabled={loading || simulating || !userId.trim() || !amount.trim()}
-              className="w-full py-2 bg-slate-800 hover:bg-slate-750 disabled:bg-slate-900 disabled:text-slate-650 border border-slate-700/50 hover:border-slate-600 disabled:border-slate-850 text-slate-200 text-xs font-bold rounded-lg transition-all active:scale-98 disabled:active:scale-100 flex items-center justify-center gap-2"
+              className="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100/80 disabled:bg-slate-50 disabled:text-slate-400 border border-emerald-200/50 hover:border-emerald-350 disabled:border-slate-200 text-emerald-800 text-xs font-bold rounded-lg transition-all active:scale-98 disabled:active:scale-100 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
             >
               {simulating ? (
                 <>
-                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span className="w-4 h-4 border-2 border-emerald-800/30 border-t-emerald-800 rounded-full animate-spin" />
                   Simulating 10 Calls...
                 </>
               ) : (
