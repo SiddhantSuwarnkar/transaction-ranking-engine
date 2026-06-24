@@ -82,7 +82,10 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
   };
 
   const handleSimulateConcurrency = async () => {
-    if (!userId.trim() || !amount.trim()) return;
+    if (!userId.trim() || !amount.trim()) {
+      alert("Please enter a User ID and Amount in the fields above before running the concurrency simulation.");
+      return;
+    }
 
     const parsedAmount = parseFloat(amount);
     if (isNaN(parsedAmount)) return;
@@ -273,7 +276,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             <button
               type="button"
               onClick={handleSimulateConcurrency}
-              disabled={loading || simulating || !userId.trim() || !amount.trim()}
+              disabled={loading || simulating}
               className="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100/80 disabled:bg-slate-50 disabled:text-slate-400 border border-emerald-200/50 hover:border-emerald-350 disabled:border-slate-200 text-emerald-800 text-xs font-bold rounded-lg transition-all active:scale-98 disabled:active:scale-100 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
             >
               {simulating ? (
