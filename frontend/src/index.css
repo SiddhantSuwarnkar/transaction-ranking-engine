@@ -7,34 +7,35 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
+  font-size: 17.5px; /* Increased base font size from 16px to scale up all typography */
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #041a15; /* Darker forest pine green background */
+  background-color: #080c14; /* Deep obsidian slate instead of dark green */
   color: #1e293b;
   overflow-x: hidden;
 }
 
-/* Custom scrollbars for a premium dark-green theme */
+/* Custom scrollbars for a premium dark theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #031511;
+  background: #04060a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0f3f35;
+  background: #101c2a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #185c4e;
+  background: #1a2c42;
 }
 
 /* Glassmorphism utility classes - light mode white & green with sharp corners */
@@ -42,7 +43,7 @@ body {
   background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(16, 185, 129, 0.20); /* Slightly more defined borders */
+  border: 1px solid rgba(16, 185, 129, 0.20);
 }
 
 .glass-panel-hover {

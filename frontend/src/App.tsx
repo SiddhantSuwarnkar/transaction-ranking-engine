@@ -58,7 +58,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#041a15] text-slate-100 flex flex-col font-sans relative overflow-hidden pb-12">
+    <div className="min-h-screen bg-[#080c14] text-slate-100 flex flex-col font-sans relative overflow-hidden pb-12">
       {/* Background Decorative Glow Spots - Natural Emerald & Mint */}
       <div className="absolute top-[-10%] left-[-15%] w-[60%] h-[60%] bg-emerald-700/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[5%] right-[-10%] w-[55%] h-[55%] bg-green-700/10 rounded-full blur-[140px] pointer-events-none" />
